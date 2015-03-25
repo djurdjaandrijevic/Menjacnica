@@ -12,37 +12,54 @@ public class Valute {
 	public String getNaziv() {
 		return naziv;
 	}
-	public void setNaziv(String naziv) {
-		this.naziv = naziv;
+	public void setNaziv(String naziv) throws Exception {
+		if(naziv == "")
+			throw new Exception("Morate uneti naziv");
+		else
+			this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
-	public void setSkraceniNaziv(String skraceniNaziv) {
-		this.skraceniNaziv = skraceniNaziv;
+	public void setSkraceniNaziv(String skraceniNaziv) throws Exception{
+		if(skraceniNaziv=="")
+			throw new Exception("Morate uneti skraceni naziv");
+		else
+			this.skraceniNaziv = skraceniNaziv;
+
 	}
 	public double getProdajniKurs() {
 		return prodajniKurs;
 	}
-	public void setProdajniKurs(double prodajniKurs) {
-		this.prodajniKurs = prodajniKurs;
+	public void setProdajniKurs(double prodajniKurs) throws Exception{
+		if(prodajniKurs<0)
+			throw new Exception("Prodajni kurs ne sme biti manji od nule");
+		else
+			this.prodajniKurs = prodajniKurs;
 	}
 	public double getSrednjiKurs() {
 		return srednjiKurs;
 	}
-	public void setSrednjiKurs(double srednjiKurs) {
+	public void setSrednjiKurs(double srednjiKurs) throws Exception{
+		if(srednjiKurs<0)
+			throw new Exception("Srednji kurs ne sme biti manji od nule");
 		this.srednjiKurs = srednjiKurs;
 	}
 	public double getKupovniKurs() {
 		return kupovniKurs;
 	}
-	public void setKupovniKurs(double kupovniKurs) {
-		this.kupovniKurs = kupovniKurs;
+	public void setKupovniKurs(double kupovniKurs) throws Exception{
+		if(kupovniKurs<0)
+			throw new Exception("Kupovni kurs ne sme biti manji od nule");
+		else
+			this.kupovniKurs = kupovniKurs;
 	}
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
-	public void setDatum(GregorianCalendar datum) {
+	public void setDatum(GregorianCalendar datum) throws Exception {
+		if(datum.YEAR <=0 || datum.MONTH<=0 || datum.DAY_OF_MONTH<=0)
+			throw new Exception("Dan, mesec i godina moraju imati vrednosti vece od nule.");
 		this.datum = datum;
 	}
 	public String toString() {
