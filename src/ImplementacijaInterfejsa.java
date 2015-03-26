@@ -1,57 +1,95 @@
 import java.util.GregorianCalendar;
 
+import java.util.LinkedList;
 
 
+public class ImplementacijaInterfejsa {
 
-
-
-import interfejsi.Menjacnica;
-
-
-
-public class ImplementacijaInterfejsa implements Menjacnica{
-
-
+LinkedList<Valute> valute = new LinkedList<Valute>();
 	
 	public void dodajKursValuteZaOdredjeniDan(GregorianCalendar datum, String val, double prodajni, double srednji, double kupovni){
-		
-		Valute[] v = new Valute[10];
-		Valute v1 = new Valute();
+		Valute v = new Valute();
 		try {
-			v1.setNaziv(val);
-			v1.setDatum(datum);
+			v.setNaziv(val);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for(int i=0; i<v.length; i++){
-			if(v[i].getNaziv().equals(v1.getNaziv()) && v[i].getDatum().equals(v1.getDatum())){
-				try {
-					v[i].setKupovniKurs(kupovni);
-					v[i].setProdajniKurs(prodajni);
-					v[i].setSrednjiKurs(srednji);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		if(!valute.contains(v)){
+			valute.add(v);
+			try {
+				v.setKupovniKurs(kupovni);
+				v.setProdajniKurs(prodajni);
+				v.setSrednjiKurs(srednji);
+				v.setDatum(datum);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-				
+			
+		}else{
+			try {
+				v.setDatum(datum);
+				v.setKupovniKurs(kupovni);
+				v.setProdajniKurs(prodajni);
+				v.setSrednjiKurs(srednji);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-	
+		
 		
 			
 	}
 	
 	public void izbrisiKursValuteZaOdredjeniDan(GregorianCalendar datum, String val){
 		
+		Valute v = new Valute();
+		try {
+			v.setDatum(datum);
+			v.setNaziv(val);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(valute.contains(v)){
+			try {
+				v.setKupovniKurs(0);
+				v.setProdajniKurs(0);
+				v.setSrednjiKurs(0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		
 		
 	}
 	
 	public double[] vratiKursValuteZaOdredjeniDan(GregorianCalendar dan, String val){
 		
+		Valute v = new Valute();
 		double[] kursevi = new double[3];
+		try {
+			v.setDatum(dan);
+			v.setSkraceniNaziv(val);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(valute.contains(v)){
+			kursevi[0] = v.getKupovniKurs();
+			kursevi[1] = v.getProdajniKurs();
+			kursevi[2] = v.getSrednjiKurs();
+			
+		}
 		return kursevi;
+	
 	
 	}
 }
+
+
+
