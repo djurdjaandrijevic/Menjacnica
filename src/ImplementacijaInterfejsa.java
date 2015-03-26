@@ -12,8 +12,7 @@ LinkedList<Valute> valute = new LinkedList<Valute>();
 		try {
 			v.setNaziv(val);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		if(!valute.contains(v)){
 			valute.add(v);
@@ -23,8 +22,7 @@ LinkedList<Valute> valute = new LinkedList<Valute>();
 				v.setSrednjiKurs(srednji);
 				v.setDatum(datum);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
 			}
 			
 		}else{
@@ -34,8 +32,7 @@ LinkedList<Valute> valute = new LinkedList<Valute>();
 				v.setProdajniKurs(prodajni);
 				v.setSrednjiKurs(srednji);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
 			}
 		}
 		
@@ -50,8 +47,7 @@ LinkedList<Valute> valute = new LinkedList<Valute>();
 			v.setDatum(datum);
 			v.setNaziv(val);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		if(valute.contains(v)){
 			try {
@@ -59,8 +55,7 @@ LinkedList<Valute> valute = new LinkedList<Valute>();
 				v.setProdajniKurs(0);
 				v.setSrednjiKurs(0);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
 			}
 			
 		}
@@ -76,8 +71,7 @@ LinkedList<Valute> valute = new LinkedList<Valute>();
 			v.setDatum(dan);
 			v.setSkraceniNaziv(val);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 		if(valute.contains(v)){
 			kursevi[0] = v.getKupovniKurs();
